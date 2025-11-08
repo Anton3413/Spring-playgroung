@@ -11,12 +11,8 @@ public class Main {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("beans-definition.xml");
 
-        Employee employee = context.getBean("employee1", Employee.class);
-        Employee employee1 = context.getBean("employee1", Employee.class);
-        Employee employee2 = context.getBean("employee1", Employee.class);
+        Employee employee = context.getBean("emp", Employee.class);
 
         System.out.println(employee);
-        System.out.println(employee1);
-        System.out.println(employee2);
     }
 }

@@ -3,6 +3,19 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id = "employee" class="com.anton3413.model.Employee" ></bean>
+    <bean id = "employee" name="emp,empl" class="com.anton3413.model.Employee" >
+        <constructor-arg type="long" name="salary" value="2000"></constructor-arg>
+        <constructor-arg type="java.lang.String" name="name" value="Anton"></constructor-arg>
+        <constructor-arg type = "java.lang.Integer" name="age" value="22"></constructor-arg>
+        <constructor-arg type="java.util.List" name="strings" >
+            <list>
+                <value>Hello, </value>
+                <value>Its </value>
+                <value>already </value>
+                <value>Spring!</value>
+            </list>
+        </constructor-arg>
+
+    </bean>
 
 </beans>
