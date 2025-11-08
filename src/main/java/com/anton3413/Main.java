@@ -2,30 +2,21 @@ package com.anton3413;
 
 
 import com.anton3413.model.Employee;
-import com.anton3413.model.Employer;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.anton3413.config");
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans-definition.xml");
 
-       var obj = context.getBean(Employee.class);
+        Employee employee = context.getBean("employee1", Employee.class);
+        Employee employee1 = context.getBean("employee1", Employee.class);
+        Employee employee2 = context.getBean("employee1", Employee.class);
 
-        var obj2 = context.getBean(Employer.class);
-
-        System.out.println("df");
-        System.out.println(obj.getName());
-        System.out.println(obj.getSalary());
-        System.out.println(obj.getEmployees());
-        System.out.println(obj.getName());
-        System.out.println(obj.getAge());
-
-        System.out.println(context.getBean(Employee.class));
-
-
-        System.out.println("Hello from Spring!");
+        System.out.println(employee);
+        System.out.println(employee1);
+        System.out.println(employee2);
     }
 }

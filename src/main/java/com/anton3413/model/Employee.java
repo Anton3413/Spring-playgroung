@@ -6,12 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Builder
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Component
+
 public class Employee {
 
     private long salary;
