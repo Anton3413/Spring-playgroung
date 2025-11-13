@@ -1,21 +1,35 @@
+<!--
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                             http://www.springframework.org/schema/beans/spring-beans.xsd
+                             http://www.springframework.org/schema/context
+                             http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <bean id = "employee" name="emp,empl" class="com.anton3413.model.Employee" >
+    <context:property-placeholder location="classpath:application.properties"/>
+
+    <bean id = "employee" name="emp,empl" class="com.anton3413.model.Employee" init-method="init" destroy-method="destroy"
+    scope="prototype">
         <constructor-arg type="long" name="salary" value="2000"></constructor-arg>
         <constructor-arg type="java.lang.String" name="name" value="Anton"></constructor-arg>
-        <constructor-arg type = "java.lang.Integer" name="age" value="22"></constructor-arg>
+        <constructor-arg type = "java.lang.Integer" name="age" value="${user.age}"></constructor-arg>
         <constructor-arg type="java.util.List" name="strings" >
             <list>
-                <value>Hello, </value>
+                <value>${list.message}</value>
                 <value>Its </value>
                 <value>already </value>
                 <value>Spring!</value>
+                <value></value>
             </list>
         </constructor-arg>
 
     </bean>
 
-</beans>
+    <bean name="string" class="java.lang.String" scope="prototype" >
+        <constructor-arg type="java.lang.String" value="The power of SPRING!!!!!!!!!!!!">
+        </constructor-arg>
+    </bean>
+
+</beans>-->
